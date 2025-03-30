@@ -37,3 +37,12 @@ document.getElementById('scrollTop').addEventListener('click', function() {
 });
 // --------------------------------------------------------------------------------
 
+document.addEventListener('copy', function(e) {
+    e.preventDefault();
+    alert('Copierea textului este dezactivată pe acest site!');
+  });
+
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();  // Previne meniul de clic dreapta
+  });
+  
