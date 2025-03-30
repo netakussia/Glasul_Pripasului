@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Fascinate&family=Gabriela&family=Tangerine:wght@400;700&display=swap');
+
+/* Stilizare generală */
+* {
+    box-sizing: border-box;
+    font-family: 'Gabriela', serif;
+}
+body {
+    background-color:#F5F5DC;
+    color: #333;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.pagina-titlu {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5e6aa;
+    text-align: center;
+    color: #000;
+    font-family: 'Fascinate', cursive;
+    font-weight: 400;
+}
+
+.pagina-titlu h1 {
+    font-size: 12rem;
+    font-weight: bold;
+    color: #6d6a2a;
+    font-family: 'Tangerine', cursive;
+}
+
+.pagina {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 10px;
+}
+
+.continut {
+    overflow: auto;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+}
+.rubrica .titlu {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8b6800;
+    font-family: 'Fascinante', cursive;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #f5e6aa, #e0c34a);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 48%; /* Ajustat ca să nu depășească marginea */
+    margin-left: auto;
+    margin-right: 2%; /* Un mic spațiu față de marginea dreaptă */
+}
+
+.rubrica .titlu:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.rubrica .raspuns {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Stiluri pentru titlu */
+.rubrica .eseu {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-top: 20px;
+    font-family: 'Fascinate', cursive; /* Font nou pentru titlu */
+    position: relative; /* Permite poziționarea liniei sub titlu */
+    cursor: pointer; /* Indică faptul că elementul este interactiv */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Adăugăm o linie sub titlu */
+.rubrica .eseu::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #c38512; /* Culoare linie */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+/* Animație la hover pe titlu */
+.rubrica .eseu.active::after {
+    transform: scaleX(1); /* Deschide linia */
+}
+
+/* Stiluri pentru răspunsul eseu */
+.rubrica .raspuns-eseu {
+    font-family: Ephesis, serif;
+    font-size: 1.5rem;
+    line-height: 2;
+    text-align: justify;
+    background-color: #f0f0d2;
+    padding: 15px;
+    border-left: 5px solid #c38512;
+    border-radius: 5px;
+    margin-top: 0;
+    height: 0; /* Ascuns inițial */
+    overflow: hidden; /* Ascunde conținutul */
+    transition: height 0.5s ease, padding 0.5s ease; /* Animație pentru deschiderea boxului */
+}
+
+/* Când titlul are clasa active, răspunsul devine vizibil */
+.rubrica .eseu.active + .raspuns-eseu {
+    height: auto; /* Face răspunsul vizibil */
+    padding: 15px; /* Restaurează padding-ul */
+}
+
+
+
+
+.imagine {
+    float: left;
+    width: 45%;
+    margin-right: 20px;
+}
+
+.imagine img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .imagine {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .pagina-titlu h1 {
+        font-size: 4rem;
+    }
+}
+
+/* Stiluri pentru meniul ascuns */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    z-index: 999;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #e0c34a; /* Cercul va avea contur */
+}
+
+/* Cercul cu linii (3 puncte) */
+nav:before,
+nav:after {
+    content: '';
+    width: 25px;
+    height: 4px;
+    background-color: #e0c34a;
+    position: absolute;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav:before {
+    transform: translateY(-6px);
+}
+
+nav:after {
+    transform: translateY(6px);
+}
+
+/* Meniul ascuns */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 60px;
+    left: -10px;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+    background-color: #e0c34a;
+    border-radius: 10px;
+    padding: 15px 10px;
+    width: 200px;
+}
+
+nav:hover ul {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    display: inline-block;
+    background-color: #e0c34a;
+    border-radius: 5px;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #9c8a43;
+    transform: scale(1.1);
+}
+
+/* Animarea liniuțelor când meniul este activ */
+nav:hover:before {
+    transform: rotate(45deg) translateY(0);
+}
+
+nav:hover:after {
+    transform: rotate(-45deg) translateY(0);
+}
+
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8b6800;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+}
+.scroll-top-btn:hover {
+    background-color: #6d4c00;
+}
+
+
+
+
+footer {
+    background-color: #8b6800;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
