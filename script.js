@@ -45,4 +45,33 @@ document.addEventListener('copy', function(e) {
   document.addEventListener('contextmenu', function(e) {
     e.preventDefault();  // Previne meniul de clic dreapta
   });
+
   
+
+
+
+
+
+  // Afișează overlay-ul pentru capturi de ecran (exemplu simplu pentru Windows)
+        let isScreenshotAttempt = false;
+
+        document.addEventListener('keydown', function(event) {
+            // Detectează combinațiile de taste pentru capturi de ecran
+            if ((event.key === 'PrintScreen') || (event.ctrlKey && event.key === 'p')) {
+                isScreenshotAttempt = true;
+                toggleOverlay(isScreenshotAttempt);
+            }
+        });
+
+        // Functie pentru a afisa sau ascunde overlay-ul
+        function toggleOverlay(show) {
+            const overlay = document.querySelector('.overlay');
+            if (show) {
+                overlay.style.display = 'block';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 3000); // Ascunde overlay-ul dupa 3 secunde
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
