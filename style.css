@@ -457,12 +457,12 @@ footer {
 
 .social-icons {
     display: flex;
-    gap: 40px;  /* Adaugă spațiu între iconițe */
+    gap: 20px;  /* Adaugă spațiu între iconițe */
 }
 
 .social-icon img {
-    width: 40px;  /* Lățimea iconițelor */
-    height: 40px; /* Înălțimea iconițelor */
+    width: 30px;  /* Lățimea iconițelor */
+    height: 30px; /* Înălțimea iconițelor */
     transition: transform 0.3s ease-in-out; /* Efect de tranziție */
 }
 
