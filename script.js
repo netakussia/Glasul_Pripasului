@@ -75,3 +75,60 @@ document.addEventListener('copy', function(e) {
                 overlay.style.display = 'none';
             }
         }
+//-------------------------------------
+const toggleButton = document.querySelector('.dark-mode-toggle');
+
+// Verifică dacă Dark Mode a fost salvat în localStorage
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    toggleButton.textContent = '🌞'; // Dacă Dark Mode este activat, setează soarele
+}
+
+// Schimbă între modurile Dark și Light la click pe buton
+toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    // Salvează starea Dark Mode în localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('dark-mode', 'enabled');
+        toggleButton.textContent = '🌞'; // Când e Dark Mode, butonul arată soarele
+    } else {
+        localStorage.setItem('dark-mode', 'disabled');
+        toggleButton.textContent = '🌙'; // Când e Light Mode, butonul arată luna
+    }
+
+    // Muta utilizatorul în partea de sus a paginii
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Afișează butonul de comutare doar când utilizatorul derulează pagina
+window.addEventListener('scroll', function() {
+    if (document.documentElement.scrollTop > 300) {
+        toggleButton.style.display = 'block'; // Arată butonul când s-a derulat destul de mult
+    } else {
+        toggleButton.style.display = 'none'; // Ascunde-l când e în partea de sus
+    }
+});
+
+
+
+
+window.addEventListener('load', () => {
+    // Așteaptă 2 secunde înainte de a ascunde animația
+    setTimeout(() => {
+        document.querySelector('.loading-overlay').style.display = 'none';
+    }, 1000); // Ajustează timpul aici (în milisecunde)
+});
+
+
+
+
+window.onscroll = function() {
+    let scrollProgress = document.getElementById('scroll-progress');
+    let scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    let scrollPosition = window.pageYOffset;
+    let progress = (scrollPosition / scrollHeight) * 100;
+    
+    // Actualizează lățimea barei de progres
+    scrollProgress.style.width = progress + '%';
+};
