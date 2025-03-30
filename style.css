@@ -440,9 +440,8 @@ body {
         height: 4px;  /* Mai subțire pe mobil */
     }
 }
-
 footer {
-    background-color: #cbbe47;
+    background-color: #d9c636;
     color: white;
     padding: 20px;
 }
@@ -463,6 +462,7 @@ footer {
 .social-icon img {
     width: 30px;  /* Lățimea iconițelor */
     height: 30px; /* Înălțimea iconițelor */
+    object-fit: contain; /* Asigură că imaginea se potrivește în dimensiunea specificată */
     transition: transform 0.3s ease-in-out; /* Efect de tranziție */
 }
 
@@ -473,4 +473,3 @@ footer {
 footer p {
     font-size: 14px;
 }
-
