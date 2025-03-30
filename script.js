@@ -1,3 +1,8 @@
+// MIT License
+// Copyright (c) 2025 Pleșca Nicolai
+// To view the full license, see the LICENSE file.
+
+
 document.querySelectorAll('.rubrica .eseu').forEach(function(titlu) {
     titlu.addEventListener('click', function() {
         this.classList.toggle('active'); // Togglează clasa 'active' pe fiecare titlu

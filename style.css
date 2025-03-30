@@ -1,3 +1,7 @@
+/* MIT License
+/* Copyright (c) 2025 Pleșca Nicolai
+/* To view the full license, see the LICENSE file.
+
 @import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Fascinate&family=Gabriela&family=Tangerine:wght@400;700&display=swap');
 
 /* Stilizare generală */
@@ -437,10 +441,36 @@ body {
     }
 }
 
-
 footer {
-    background-color: #8b6800;
+    background-color: #cbbe47;
     color: white;
-    padding: 10px;
-    text-align: center;
+    padding: 20px;
 }
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;  /* Plasează elementele pe extremități */
+    align-items: center;  /* Aliniază vertical elementele */
+    max-width: 1100px;
+    margin: 0 auto;  /* Centrează footerul */
+}
+
+.social-icons {
+    display: flex;
+    gap: 40px;  /* Adaugă spațiu între iconițe */
+}
+
+.social-icon img {
+    width: 40px;  /* Lățimea iconițelor */
+    height: 40px; /* Înălțimea iconițelor */
+    transition: transform 0.3s ease-in-out; /* Efect de tranziție */
+}
+
+.social-icon img:hover {
+    transform: scale(1.2);  /* Zoom pe iconiță la hover */
+}
+
+footer p {
+    font-size: 14px;
+}
+
